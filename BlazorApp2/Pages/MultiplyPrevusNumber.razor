@@ -1,0 +1,28 @@
+﻿@page "/MultiplyPrevusNumber"
+using system.Math
+<h3>Multiply</h3>
+
+
+
+<p role="status">Current Multiplayer: @Result</p>
+
+<div class="row">
+    <div class="col-md-4">
+        <input placeholder="Enter Multiplayer" @bind="@mul" />
+    </div>
+</div>
+
+<button class="btn btn-primary" @onclick="MultiplyBy"> Multiply </button>
+
+
+@code {
+    private double Result = 2;
+    private double multiplayer = 1;
+    private string mul="1";
+    private void MultiplyBy()
+    {
+        multiplayer = Convert.ToDouble(mul);
+        Result = Result * multiplayer;
+    }
+ 
+}

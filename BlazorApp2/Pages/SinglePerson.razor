@@ -1,0 +1,51 @@
+﻿@page "/singleperson"
+@using BlazorApp2.Data
+@using BlazorApp2.Interfaces;
+@inject HttpClient Http;
+@inject IPersonService PersonService
+<h3>SinglePerson</h3>
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <input placeholder="Enter Multiplayer" @bind="@id" />
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+    <th>id</th>
+    <th>name</th>
+    <th>age</th>
+    </thead>
+    <tbody>
+        @foreach (var man in PersonService.people)
+        {
+            @if (man.Id == id)
+            {
+                <tr>
+                <td>@man.Id</td>
+                <td>@man.name</td>
+                <td>@man.age</td>
+            </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+
+
+
+@code {
+    
+    protected override async Task OnInitializedAsync()
+    {
+        await PersonService.GetPerson();
+
+    }
+    public int id = 1;
+    //[Parameter]
+    //public int? Id {get ; set; }
+}

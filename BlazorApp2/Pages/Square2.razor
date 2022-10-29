@@ -1,0 +1,30 @@
+﻿@page "/Square2"
+using system.Math
+<h3>Square2</h3>
+
+
+
+<p role="status">Current Square: @currentPower</p>
+
+<button class="btn btn-primary" @onclick="Power">next power</button>
+
+<button class="btn btn-primary" @onclick="SQRT">previus power</button>
+
+@code {
+    private Int64 currentPower = 2;
+
+    private void Power()
+    {
+        if (currentPower == 0 || currentPower == 1) { 
+            currentPower = 2; 
+        }
+        else{
+            currentPower = currentPower * currentPower;
+        }
+        
+    }
+    private void SQRT()
+    {
+        currentPower=Convert.ToInt32(Math.Sqrt(currentPower));
+    }
+}

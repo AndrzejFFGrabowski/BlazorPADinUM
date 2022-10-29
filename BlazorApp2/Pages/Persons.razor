@@ -1,0 +1,33 @@
+﻿@page "/Persons"
+@using BlazorApp2.Data
+@using BlazorApp2.Interfaces;
+@inject HttpClient Http;
+@inject IPersonService PersonService;
+
+<h3>Persons</h3>
+
+
+<table class="table">
+    <thead>
+        <th>id</th>
+        <th>name</th>
+        <th>age</th>
+    </thead>
+    <tbody>
+        @foreach (var man in PersonService.people)
+        {
+            <tr>
+                <td>@man.Id</td>
+                <td>@man.name</td>
+                <td>@man.age</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await PersonService.GetPerson();
+
+    }
+}
