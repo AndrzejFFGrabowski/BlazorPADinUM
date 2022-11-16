@@ -10,15 +10,15 @@ namespace BlazorApp2.Services
         {
             _http = http;
         }
-        public List<Person> people { get; set; } = new List<Person>();
+        public List<Person> persons { get; set; } = new List<Person>();
 
         public async Task GetPerson()
         {
-            var result = await _http.GetFromJsonAsync<List<Person>>("https://localhost:44367/api/Person");
+            var result = await _http.GetFromJsonAsync<List<Person>>("api/person");
             //var result = await _http.GetFromJsonAsync<List<Person>>("C:\\data.json");
 
             if (result != null)
-                people = result;
+                persons = result;
         }
 
         public Task GetSinglePerson(int id)

@@ -2,7 +2,7 @@
 {
     public interface IPersonService
     {
-        List<Person> people { get; set; }
+        List<Person> persons { get; set; }
         Task GetPerson();
         Task GetSinglePerson(int id);
     }

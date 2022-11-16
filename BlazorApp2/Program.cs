@@ -12,7 +12,9 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 //builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddHttpClient<IPersonService, PersonService>();
-builder.Services.AddMvc(options => options.EnableEndpointRouting = false);
+builder.Services.AddTransient<PersonService>();
+builder.Services.AddSingleton<PersonService>();
+builder.Services.AddMvc(options => options.EnableEndpointRouting = true);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -30,11 +32,19 @@ app.UseRouting();
 
 
 
-app.UseMvcWithDefaultRoute();
+//app.UseMvcWithDefaultRoute();
 
+
+
+//app.MapBlazorHub();
+//app.MapFallbackToPage("/_Host");
+/*
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapBlazorHub();
+    endpoints.MapFallbackToPage("/_Host");
+    endpoints.MapControllerRoute("default", "{controller=PersonController}/{action=Index}/{id?}");
+});
+*/
 //app.UseRouting();
-
-app.MapBlazorHub();
-app.MapFallbackToPage("/_Host");
-
 app.Run();
