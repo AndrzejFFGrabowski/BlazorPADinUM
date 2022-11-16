@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2usXPKvH7/zWjLkZzgDxoQiNkjGJ02I1J0HwgPf3l2WU6vjHEf4eWh8+TstWV3+sCV82xSjo8GnQiFwkAE2aVg==",
+  "dgSpecHash": "QvleL9gtISrXfD27r6mwGHAIfycpJ9V7npGVYZe5rUUdJXbG4IdHxesgiqjVZCOJnq5qtf6oZvXcJVnHmRcybg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Desktop\\Andrzej\\rzeczy_na_studia\\rok3\\semestr5\\Programowanie aplikacji webowych i desktopowych\\zadania\\BlazorApp2\\BlazorApp2\\BlazorApp2.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Desktop\\Andrzej\\rzeczy_na_studia\\rok3\\semestr5\\Programowanie aplikacji webowych i desktopowych\\zadania\\repo\\BlazorPADinUM\\BlazorApp2\\BlazorApp2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\grpc.core\\2.46.5\\grpc.core.2.46.5.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\grpc.core.api\\2.46.5\\grpc.core.api.2.46.5.nupkg.sha512",
