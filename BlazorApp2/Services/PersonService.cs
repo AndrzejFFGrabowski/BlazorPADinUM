@@ -21,6 +21,10 @@ namespace BlazorApp2.Services
                 people = result;
         }
 
+        public async Task AddPerson(Person person)
+        {
+        }
+
         public Task GetSinglePerson(int id)
         {
             throw new NotImplementedException();

@@ -1,0 +1,46 @@
+﻿@page "/personedit"
+@page "/personedit/{id:int}"
+@page "/personedit/{age:int}"
+@using BlazorApp2.Data
+@using BlazorApp2.Interfaces;
+@inject HttpClient Http;
+@inject IPersonService PersonService
+
+<h3>PersonEdit</h3>
+<PageTitle>Create new Person</PageTitle>
+    
+<EditForm Model="@newPerson" OnSubmit="handleSubmit">
+    Put name
+    <InputText id="name" @bind-bind-Value="newPerson.name"></InputText>
+    Put age
+    <!--
+    <InputSelect @bind-bind-Value="newPerson.age" class="form-select">
+        for (int i =0;i<100;i++)
+        {
+
+        }
+
+    </InputSelect>
+    -->
+</EditForm>
+
+
+
+@code {
+    [Parameter]
+    public int? Id {get; set; }
+    public int? Age {get; set; }
+
+    Person newPerson = new Person();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        
+    }
+
+    async Task handleSubmit()
+    {
+
+    }
+
+}

@@ -5,5 +5,7 @@
         List<Person> people { get; set; }
         Task GetPerson();
         Task GetSinglePerson(int id);
+
+        Task AddPerson(Person person);
     }
 }
