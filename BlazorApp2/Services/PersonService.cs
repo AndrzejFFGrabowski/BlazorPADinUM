@@ -14,7 +14,7 @@ namespace BlazorApp2.Services
 
         public async Task GetPerson()
         {
-            var result = await _http.GetFromJsonAsync<List<Person>>("https://localhost:44367/api/Person");
+            var result = await _http.GetFromJsonAsync<List<Person>>("/api/Person");
             //var result = await _http.GetFromJsonAsync<List<Person>>("C:\\data.json");
 
             if (result != null)

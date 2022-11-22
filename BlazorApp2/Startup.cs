@@ -1,23 +1,36 @@
-﻿namespace BlazorApp2
+﻿using BlazorApp2.Shared;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+
+namespace BlazorApp2
 {
     public static class Startup
     {
-        public static WebApplication InitializeApp(String[] args)
+        public static WebAssemblyHostBuilder InitializeApp(WebAssemblyHostBuilder builder)
         {
-            var builder = WebApplication.CreateBuilder(args);
+            //var builder = WebAssemblyHostBuilder.CreateDefault(args);
+            ConfigureRootComponetns(builder);
             ConfigureServices(builder);
-            var app = builder.Build();
-            Configure(app);
-            return app;
+            //var app = builder.Build();
+            //Configure(app);
+            return builder;
         }
-        private static void ConfigureServices(WebApplicationBuilder builder)
+        private static void ConfigureRootComponetns(WebAssemblyHostBuilder builder)
         {
-            builder.Services.AddRazorPages();
-            builder.Services.AddServerSideBlazor();
-            builder.Services.AddSingleton<WeatherForecastService>();
-            builder.Services.AddSingleton<PersonService>();
-            builder.Services.AddHttpClient<IPersonService, PersonService>();
-            builder.Services.AddMvc(options => options.EnableEndpointRouting = false);
+            builder.RootComponents.Add<App>("#app");
+            builder.RootComponents.Add<HeadOutlet>("head::after");
+        }
+        private static void ConfigureServices(WebAssemblyHostBuilder builder)
+        {
+            //builder.Services.AddRazorPages();
+            //builder.Services.AddServerSideBlazor();
+            //builder.Services.AddSingleton<WeatherForecastService>();
+            //builder.Services.AddHttpClient<IPersonService, PersonService>();
+            //builder.Services.AddTransient<PersonService>();
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddScoped<IPersonService, PersonService>();
+            //builder.Services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 
         private static void Configure(WebApplication app)
@@ -32,7 +45,7 @@
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();
             app.MapBlazorHub();
             app.MapFallbackToPage("/_Host");
         }

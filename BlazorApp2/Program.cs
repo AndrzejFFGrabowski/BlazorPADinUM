@@ -5,6 +5,8 @@ using BlazorApp2;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-var app = Startup.InitializeApp(args);
-app.Run();
+var builder = WebAssemblyHostBuilder.CreateDefault(args);
+var app = Startup.InitializeApp(builder);
+await app.Build().RunAsync();

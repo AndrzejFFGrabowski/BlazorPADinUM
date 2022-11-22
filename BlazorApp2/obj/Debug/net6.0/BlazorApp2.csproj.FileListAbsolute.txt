@@ -74,3 +74,5 @@ C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplik
 C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\obj\Debug\net6.0\BlazorApp2.pdb
 C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\obj\Debug\net6.0\BlazorApp2.genruntimeconfig.cache
 C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\obj\Debug\net6.0\ref\BlazorApp2.dll
+C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\bin\Debug\net6.0\Microsoft.AspNetCore.Components.WebAssembly.dll
+C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\bin\Debug\net6.0\Microsoft.JSInterop.WebAssembly.dll
