@@ -1,4 +1,7 @@
-﻿using BlazorApp2.Interfaces;
+﻿using BlazorApp2.Controllers;
+using BlazorApp2.Interfaces;
+using BlazorApp2.Pages;
+using Newtonsoft.Json;
 using System.Net.Http.Json;
 
 namespace BlazorApp2.Services
@@ -23,11 +26,22 @@ namespace BlazorApp2.Services
 
         public async Task AddPerson(Person person)
         {
+            //var result = await _http.GetFromJsonAsync<List<Person>>("https://localhost:44367/api/Person/AddActor");
+            string json = JsonConvert.SerializeObject(person, Formatting.Indented);
+            var result = await _http.PostAsJsonAsync(json, "https://localhost:44367/api/Person/AddActor");
+            
         }
 
         public Task GetSinglePerson(int id)
         {
+            /*
+            var result = await _http.GetFromJsonAsync<List<Person>>("https://localhost:44367/api/Person/{id}");
+            //var result = await _http.GetFromJsonAsync<List<Person>>("C:\\data.json");
+            if (result != null)return result;
+            throw new Exception("Person not found");
+            */
             throw new NotImplementedException();
         }
+
     }
-}
+    }

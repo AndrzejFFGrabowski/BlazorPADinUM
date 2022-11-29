@@ -47,5 +47,20 @@ namespace BlazorApp2.Controllers
             }
             return Ok(persons);
         }
+        [HttpPost("AddActor")]
+        public async Task<ActionResult> AddPerson(Person person)
+        {
+            
+            var result = await _http.GetFromJsonAsync<List<Person>>("https://localhost:44367/api/Person");
+            using (StreamWriter sr = new StreamWriter("C:/Data.json"))
+            {
+                persons.Add(person);
+                string json = JsonConvert.SerializeObject(persons, Formatting.Indented);
+                Console.WriteLine(json);
+                sr.Write(json);
+                //sr
+            }
+            return Ok(persons);
+        }
     }
 }

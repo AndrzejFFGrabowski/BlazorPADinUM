@@ -1,46 +1,50 @@
 ﻿@page "/personedit"
-@page "/personedit/{id:int}"
-@page "/personedit/{age:int}"
 @using BlazorApp2.Data
 @using BlazorApp2.Interfaces;
 @inject HttpClient Http;
 @inject IPersonService PersonService
 
 <h3>PersonEdit</h3>
-<PageTitle>Create new Person</PageTitle>
-    
-<EditForm Model="@newPerson" OnSubmit="handleSubmit">
-    Put name
-    <InputText id="name" @bind-bind-Value="newPerson.name"></InputText>
-    Put age
-    <!--
-    <InputSelect @bind-bind-Value="newPerson.age" class="form-select">
-        for (int i =0;i<100;i++)
-        {
 
-        }
-
-    </InputSelect>
-    -->
-</EditForm>
-
+<div>
+    <div class="row">
+        <div class="col-md-4">
+            <input placeholder="Enter Id" @bind="@idString" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+            <input placeholder="Enter name" @bind="@nameString" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-2">
+            <button @onclick="addPerson" class="btn btn-light">submit</button>
+        </div>
+    </div>
+</div>
 
 
 @code {
-    [Parameter]
-    public int? Id {get; set; }
-    public int? Age {get; set; }
+    private string idString="";
+    private string nameString = "";
+    private int id;
 
-    Person newPerson = new Person();
-
-    protected override async Task OnParametersSetAsync()
+    private void addPerson()
     {
-        
-    }
+        try
+        {
+            id = Convert.ToInt32(idString);
+            if(nameString!=""){
+                Person person = new Person(id,nameString);
+                PersonService.AddPerson(person);
+            }
+        }catch(InvalidCastException e)
+        {
 
-    async Task handleSubmit()
-    {
-
+        }
     }
 
 }
