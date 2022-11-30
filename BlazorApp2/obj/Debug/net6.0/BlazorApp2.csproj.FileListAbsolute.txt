@@ -74,3 +74,13 @@ C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplik
 C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\obj\Debug\net6.0\BlazorApp2.pdb
 C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\obj\Debug\net6.0\BlazorApp2.genruntimeconfig.cache
 C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\obj\Debug\net6.0\ref\BlazorApp2.dll
+C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll

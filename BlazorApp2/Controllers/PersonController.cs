@@ -1,8 +1,10 @@
-﻿using Grpc.Core;
+﻿using BlazorApp2.Context;
+using Grpc.Core;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Text;
 using static System.Net.WebRequestMethods;
 //using BlazorApp1.Data;
 
@@ -13,6 +15,7 @@ namespace BlazorApp2.Controllers
     public class PersonController : ControllerBase
     {
         public static List<Person> persons = new List<Person>();
+        public PersonContext personContext=new PersonContext();
         /*
         {
             new Person{Id = 1, name="Ala", age = 22},
@@ -22,10 +25,7 @@ namespace BlazorApp2.Controllers
         
         public PersonController()
         {
-            using (StreamReader sr = new StreamReader("C:/Data.json"))
-            {
-                persons = JsonConvert.DeserializeObject<List<Person>>(sr.ReadToEnd());
-            }
+            persons = personContext.GetData();
         }
         
 
@@ -34,7 +34,9 @@ namespace BlazorApp2.Controllers
         {
             //var res = await Http.GetJsonAsync<List<Person>>("/data");
 
-                //(HttpMethod.Post, "/api/Customer",< List<Person>>("data.json");
+            //(HttpMethod.Post, "/api/Customer",< List<Person>>("data.json");
+            var res =await ReadTextAsync("C:/test.json");
+            persons = JsonConvert.DeserializeObject<List<Person>>(res);
             return Ok(persons);
         }
         [HttpGet("{id}")]
@@ -47,20 +49,33 @@ namespace BlazorApp2.Controllers
             }
             return Ok(persons);
         }
-        [HttpPost("AddActor")]
-        public async Task<ActionResult> AddPerson(Person person)
+        [HttpPost]
+        public async Task AddPerson(Person person)
         {
-            
-            var result = await _http.GetFromJsonAsync<List<Person>>("https://localhost:44367/api/Person");
-            using (StreamWriter sr = new StreamWriter("C:/Data.json"))
+            //var result = await _http.GetFromJsonAsync<List<Person>>("C:\\data.json");
+            Console.WriteLine("tada");
+            persons.Add(person);
+            personContext.SaveData(persons);
+        }
+
+        static async Task<string> ReadTextAsync(string filePath)
+        {
+            using (FileStream sourceStream = new FileStream(filePath,
+                FileMode.Open, FileAccess.Read, FileShare.Read,
+                bufferSize: 4096, useAsync: true))
             {
-                persons.Add(person);
-                string json = JsonConvert.SerializeObject(persons, Formatting.Indented);
-                Console.WriteLine(json);
-                sr.Write(json);
-                //sr
+                StringBuilder sb = new StringBuilder();
+
+                byte[] buffer = new byte[0x1000];
+                int numRead;
+                while ((numRead = await sourceStream.ReadAsync(buffer, 0, buffer.Length)) != 0)
+                {
+                    string text = Encoding.Unicode.GetString(buffer, 0, numRead);
+                    sb.Append(text);
+                }
+
+                return sb.ToString();
             }
-            return Ok(persons);
         }
     }
 }
