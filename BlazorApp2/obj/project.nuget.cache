@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NSK0phIvVnIE+JQ7ZzTyHjArDBjLzG/pBI+M2qgsH15bnUsqAy7UVR6xCb+NpmbqWKqpNW0b5MDIlHIsF71b8g==",
+  "dgSpecHash": "Errdfj/quA5TqcG+jjs3TpiM3UKSTT0wCfSVQB3GVnY2vTo2WvPfHfiUF45P7vlstPVd0TL+Aus/vuzgPZOa4w==",
   "success": true,
   "projectFilePath": "C:\\Users\\DELL\\Desktop\\Andrzej\\rzeczy_na_studia\\rok3\\semestr5\\Programowanie aplikacji webowych i desktopowych\\zadania\\repo\\BlazorPADinUM\\BlazorApp2\\BlazorApp2.csproj",
   "expectedPackageFiles": [
@@ -60,6 +60,7 @@
     "C:\\Users\\DELL\\.nuget\\packages\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\system.net.requests\\4.3.0\\system.net.requests.4.3.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\system.net.webheadercollection\\4.3.0\\system.net.webheadercollection.4.3.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.reactive\\5.0.0\\system.reactive.5.0.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\system.resources.resourcemanager\\4.3.0\\system.resources.resourcemanager.4.3.0.nupkg.sha512",

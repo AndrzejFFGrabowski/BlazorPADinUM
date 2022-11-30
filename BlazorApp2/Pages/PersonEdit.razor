@@ -21,30 +21,29 @@
     <br />
     <div class="row">
         <div class="col-md-2">
-            <button @onclick="addPerson" class="btn btn-light">submit</button>
+            <button @onclick="editPerson" class="btn btn-light">submit</button>
         </div>
     </div>
 </div>
 
-
 @code {
-    private string idString="";
+    private string idString = "";
     private string nameString = "";
     private int id;
 
-    private void addPerson()
+    private void editPerson()
     {
-        try
+        if (int.TryParse(idString, out id))
         {
-            id = Convert.ToInt32(idString);
-            if(nameString!=""){
-                Person person = new Person(id,nameString);
-                PersonService.AddPerson(person);
+            if (nameString != "")
+            {
+                Person person = new Person(id, nameString);
+                PersonService.EditPerson(person);
             }
-        }catch(InvalidCastException e)
-        {
-
         }
+
     }
 
 }
+
+

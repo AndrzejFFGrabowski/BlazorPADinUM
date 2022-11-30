@@ -6,6 +6,9 @@
         Task GetPerson();
         Task GetSinglePerson(int id);
 
+        Task DeletePerson(int id);
         Task AddPerson(Person person);
+
+        Task EditPerson(Person person);
     }
 }

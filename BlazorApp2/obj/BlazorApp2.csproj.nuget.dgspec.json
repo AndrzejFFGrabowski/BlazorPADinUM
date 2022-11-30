@@ -68,6 +68,10 @@
             "System.Net.Requests": {
               "target": "Package",
               "version": "[4.3.0, )"
+            },
+            "System.Reactive": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [

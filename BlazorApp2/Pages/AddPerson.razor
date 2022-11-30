@@ -1,5 +1,4 @@
 ﻿@page "/addperson"
-@page "/addperson/{id:int}"
 @using BlazorApp2.Data
 @using BlazorApp2.Interfaces;
 @inject HttpClient Http;
@@ -9,42 +8,43 @@
 
 <PageTitle>Create new Person</PageTitle>
     
-<EditForm Model="@newPerson" OnSubmit="handleSubmit">
-    Put name
-    <InputText id="name" @bind-bind-Value="newPerson.name"></InputText>
-    Put age
-    <!--
-    <InputSelect @bind-bind-Value="newPerson.age" class="form-select">
-        for (int i =0;i<100;i++)
-        {
+<div>
+    <div class="row">
+        <div class="col-md-4">
+            <input placeholder="Enter Id" @bind="@idString" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+            <input placeholder="Enter name" @bind="@nameString" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-2">
+            <button @onclick="addPerson" class="btn btn-light">submit</button>
+        </div>
+    </div>
+</div>
 
-        }
-
-    </InputSelect>
-    -->
-    <button type="submit" class="btn btn-primary">@btnText</button>
-</EditForm>
 
 @code {
-    [Parameter] 
-    public int? Id { get; set; }
+    private string idString = "";
+    private string nameString = "";
+    private int id;
 
-    string btnText = string.Empty;
-
-    Person newPerson = new Person();
-
-    protected override async Task OnInitializedAsync()
+    private void addPerson()
     {
-        btnText = Id == null ? "Save New Hero" : "Update Hero";
+        if (int.TryParse(idString, out id))
+        {
+            if (nameString != "")
+            {
+                Person person = new Person(id, nameString);
+                PersonService.AddPerson(person);
+            }
+        }
+
     }
 
-    public async Task OnParametersSetAsync()
-    {
-        
-    }
-
-    async Task handleSubmit()
-    {
-
-    }
 }

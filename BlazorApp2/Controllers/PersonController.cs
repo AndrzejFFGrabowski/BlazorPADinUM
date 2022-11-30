@@ -1,5 +1,4 @@
-﻿using BlazorApp2.Context;
-using Grpc.Core;
+﻿using Grpc.Core;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,17 +14,10 @@ namespace BlazorApp2.Controllers
     public class PersonController : ControllerBase
     {
         public static List<Person> persons = new List<Person>();
-        public PersonContext personContext=new PersonContext();
-        /*
-        {
-            new Person{Id = 1, name="Ala", age = 22},
-            new Person{Id = 2, name = "Olo", age =33}
-        };
-        */
+
         
         public PersonController()
         {
-            persons = personContext.GetData();
         }
         
 
@@ -35,8 +27,7 @@ namespace BlazorApp2.Controllers
             //var res = await Http.GetJsonAsync<List<Person>>("/data");
 
             //(HttpMethod.Post, "/api/Customer",< List<Person>>("data.json");
-            var res =await ReadTextAsync("C:/test.json");
-            persons = JsonConvert.DeserializeObject<List<Person>>(res);
+            persons =await Database.ReadTextAsync();
             return Ok(persons);
         }
         [HttpGet("{id}")]
@@ -50,32 +41,52 @@ namespace BlazorApp2.Controllers
             return Ok(persons);
         }
         [HttpPost]
-        public async Task AddPerson(Person person)
+        public async Task<ActionResult> AddPerson(Person person)
         {
             //var result = await _http.GetFromJsonAsync<List<Person>>("C:\\data.json");
-            Console.WriteLine("tada");
-            persons.Add(person);
-            personContext.SaveData(persons);
-        }
-
-        static async Task<string> ReadTextAsync(string filePath)
-        {
-            using (FileStream sourceStream = new FileStream(filePath,
-                FileMode.Open, FileAccess.Read, FileShare.Read,
-                bufferSize: 4096, useAsync: true))
+            persons = await Database.ReadTextAsync();
+            Person x = persons.Find(p => p.Id == person.Id);
+            if(x!= null)
             {
-                StringBuilder sb = new StringBuilder();
-
-                byte[] buffer = new byte[0x1000];
-                int numRead;
-                while ((numRead = await sourceStream.ReadAsync(buffer, 0, buffer.Length)) != 0)
-                {
-                    string text = Encoding.Unicode.GetString(buffer, 0, numRead);
-                    sb.Append(text);
-                }
-
-                return sb.ToString();
+                return StatusCode(409);
             }
+            persons.Add(person);
+            await Database.WriteTextAsync(persons);
+            Console.WriteLine("tada");
+            return Ok();
         }
+
+        [HttpPut]
+        public async Task<ActionResult> EditPerson(Person person)
+        {
+            //var result = await _http.GetFromJsonAsync<List<Person>>("C:\\data.json");
+            persons = await Database.ReadTextAsync();
+            Person x = persons.Find(p => p.Id == person.Id);
+            if (x == null)
+            {
+                return StatusCode(404);
+            }
+            persons.Remove(x);
+            persons.Add(person);
+            await Database.WriteTextAsync(persons);
+            Console.WriteLine("tada");
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task <ActionResult>DeletePerson(int id)
+        {
+            persons = await Database.ReadTextAsync();
+            Person x = persons.Find(p => p.Id == id);
+            if (x == null){
+                return NotFound();
+            }
+            persons.Remove(x);
+            await Database.WriteTextAsync(persons);
+            return Ok();
+
+        }
+
+       
     }
 }
