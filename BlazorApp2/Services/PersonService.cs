@@ -18,25 +18,25 @@ namespace BlazorApp2.Services
 
         public async Task GetPerson()
         {
-            //var result = await _http.GetFromJsonAsync<List<Person>>("https://localhost:44367/api/Person");
+            var result = await _http.GetFromJsonAsync<List<Person>>("https://localhost:44367/api/Person");
             //var result = await _http.GetFromJsonAsync<List<Person>>("C:\\data.json");
-            string str = await ReadTextAsync("C:/test.json");
-            int y = 2 * 2;
-            people= JsonConvert.DeserializeObject<List<Person>>(str);
+            //string str = await ReadTextAsync("C:/test.json");
+            //int y = 2 * 2;
+            //people= JsonConvert.DeserializeObject<List<Person>>(str);
 
-            //if (result != null)
-            //    people = result;
+            if (result != null)
+                people = result;
         }
 
         public async Task AddPerson(Person person)
         {
-            //var result = await _http.GetFromJsonAsync<List<Person>>("https://localhost:44367/api/Person");
-            string str = await ReadTextAsync("C:/test.json");
-            people = JsonConvert.DeserializeObject<List<Person>>(str);
-            people.Add(person);
-            string json = JsonConvert.SerializeObject(people, Formatting.Indented);
+            var result = await _http.PostAsJsonAsync<Person>("https://localhost:44367/api/Person", person);
+            //string str = await ReadTextAsync("C:/test.json");
+            //people = JsonConvert.DeserializeObject<List<Person>>(str);
+            //people.Add(person);
+            //string json = JsonConvert.SerializeObject(people, Formatting.Indented);
 
-            await WriteTextAsync("C:/test.json", json);
+            //await WriteTextAsync("C:/test.json", json);
 
             
         }
