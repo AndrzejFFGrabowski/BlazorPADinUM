@@ -1,0 +1,56 @@
+﻿@page "/Device"
+@inject IJSRuntime JS
+@using Microsoft.Extensions.Logging
+@using System.IO
+<h3>Device</h3>
+
+<p role="status">Online: @state</p>
+
+<button class="btn btn-primary" @onclick="CheckOnClick">Status:</button>
+
+<button class="btn btn-primary" @onclick="FullScreen">full screen:</button>
+
+<input type="text" value="" id="myInput">
+<button class="btn btn-primary" @onclick="Copy">copy</button>
+
+
+<InputFile OnChange="@GetFile" multiple />
+<p role="status">Current File: @strFile</p>
+
+@*
+    function openFullscreen() {
+        // attempt to call the browser API
+        } else {
+            return false;
+        }
+    }
+
+*@
+@code {
+    String strFile = "no file";
+    String state;
+    public async void CheckOnClick()
+    {
+        state=new (await JS.InvokeAsync<string>("getOnlineState"));
+        //state = state + state;
+    }
+    public async Task FullScreen()
+    {
+        await JS.InvokeVoidAsync("fullSreen");
+    }
+    public async Task Copy()
+    {
+        await JS.InvokeVoidAsync("copy");
+    }
+    private async Task GetFile(InputFileChangeEventArgs e)
+    {
+        using var content = new MultipartFormDataContent();
+
+        var fileContent = new StreamContent(e.File.OpenReadStream());
+
+        content.Add(fileContent);
+        strFile = await fileContent.ReadAsStringAsync();
+        Console.WriteLine(strFile);
+        int y = 5 + 3;
+    }
+}

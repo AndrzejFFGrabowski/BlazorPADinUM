@@ -84,3 +84,4 @@ C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplik
 C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
 C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\DELL\Desktop\Andrzej\rzeczy_na_studia\rok3\semestr5\Programowanie aplikacji webowych i desktopowych\zadania\repo\BlazorPADinUM\BlazorApp2\bin\Debug\net6.0\System.Reactive.dll

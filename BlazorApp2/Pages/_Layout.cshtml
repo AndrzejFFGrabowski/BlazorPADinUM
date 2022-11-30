@@ -28,5 +28,32 @@
     </div>
 
     <script src="_framework/blazor.server.js"></script>
+    <script>
+        window.editNotify=(id) => {
+            if (!("Notification" in window)) {
+                alert("This browser does not support desktop notification");
+            } else if (Notification.permission === "granted") {
+                const notification = new Notification("User edited");
+            } else if (Notification.permission !== "denied") {
+                Notification.requestPermission().then((permission) => {
+                    if (permission === "granted") {
+                        const notification = new Notification("User edited");
+                    }
+                });
+            }
+        };
+
+        
+
+        window.getOnlineState = () => {
+            if (navigator.onLine) {
+                return "online";
+            } else {
+                return "offline";
+            }
+
+        };
+
+    </script>
 </body>
 </html>

@@ -6,3 +6,29 @@
 }
 
 <component type="typeof(App)" render-mode="ServerPrerendered" />
+<body>
+    <script>
+        function fullSreen() {
+
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+
+        };
+
+        function copy(){
+            var copyText = document.getElementById("myInput");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+        }
+
+
+        
+
+       
+    </script>
+
+</body>
