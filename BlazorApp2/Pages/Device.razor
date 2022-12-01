@@ -17,6 +17,8 @@
 <InputFile OnChange="@GetFile" multiple />
 <p role="status">Current File: @strFile</p>
 
+
+<button class="btn btn-primary" @onclick="GetUsb">usb</button>
 @*
     function openFullscreen() {
         // attempt to call the browser API
@@ -52,5 +54,9 @@
         strFile = await fileContent.ReadAsStringAsync();
         Console.WriteLine(strFile);
         int y = 5 + 3;
+    }
+    public async Task GetUsb()
+    {
+        await JS.InvokeVoidAsync("getUSB");
     }
 }

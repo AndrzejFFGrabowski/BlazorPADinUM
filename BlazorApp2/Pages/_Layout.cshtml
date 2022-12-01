@@ -54,6 +54,24 @@
 
         };
 
+        window.getUSB = () => {
+            navigator.usb.requestDevice({ filters: [{ vendorId: 0x2341 }] })
+                .then(device => {
+                    console.log(device.productName);      // "Arduino Micro"
+                    console.log(device.manufacturerName); // "Arduino LLC"
+                })
+                .catch(error => { console.error(error); });
+
+            navigator.usb.getDevices()
+                .then((devices) => {
+                    console.log(`Total devices: ${devices.length}`);
+                    alert(`Total devices: ${devices.length}`)
+                    devices.forEach((device) => {
+                        console.log(`Product name: ${device.productName}, serial number ${device.serialNumber}`);
+                        alert(`Product name: ${device.productName}, serial number ${device.serialNumber}`)
+                    });
+                });
+        }
     </script>
 </body>
 </html>

@@ -1,4 +1,8 @@
-﻿namespace BlazorApp2
+﻿using System.Net.Security;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+
+namespace BlazorApp2
 {
     public static class Startup
     {
