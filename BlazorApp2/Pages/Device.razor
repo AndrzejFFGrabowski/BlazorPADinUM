@@ -13,9 +13,12 @@
 <input type="text" value="" id="myInput">
 <button class="btn btn-primary" @onclick="Copy">copy</button>
 
+<button class="btn btn-primary" @onclick="GetUsb">usb</button>
 
 <InputFile OnChange="@GetFile" multiple />
 <p role="status">Current File: @strFile</p>
+
+
 
 @*
     function openFullscreen() {
@@ -52,5 +55,9 @@
         strFile = await fileContent.ReadAsStringAsync();
         Console.WriteLine(strFile);
         int y = 5 + 3;
+    }
+    public async Task GetUsb()
+    {
+        await JS.InvokeVoidAsync("getUSB");
     }
 }

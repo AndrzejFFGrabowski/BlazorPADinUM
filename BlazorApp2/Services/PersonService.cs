@@ -19,7 +19,7 @@ namespace BlazorApp2.Services
             _http = http;
         }
         public List<Person> people { get; set; } = new List<Person>();
-        private const string uri = "https://localhost:44367/api/Person";
+        private const string uri = "https://localhost:7205/api/Person";
         public async Task GetPerson()
         {
             var result = await _http.GetFromJsonAsync<List<Person>>(uri);

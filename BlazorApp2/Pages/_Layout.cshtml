@@ -54,6 +54,18 @@
 
         };
 
+        window.getUSB = () => {
+            navigator.usb.getDevices()
+                .then((devices) => {
+                    console.log(`Total devices: ${devices.length}`);
+                    alert(`Total devices: ${devices.length}`)
+                    devices.forEach((device) => {
+                        console.log(`Product name: ${device.productName}, serial number ${device.serialNumber}`);
+                        alert(`Product name: ${device.productName}, serial number ${device.serialNumber}`)
+                    });
+                });
+        }
+
     </script>
 </body>
 </html>
